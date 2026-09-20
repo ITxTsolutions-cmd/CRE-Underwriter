@@ -162,6 +162,53 @@ Rows, cells, and paragraphs may expand vertically as needed for transaction cont
 
 Do not reduce font size, change column widths, delete findings, shorten findings, compress document requests, or redesign the template merely to preserve the original page count.
 
+## Client Email Typography Lock
+
+The completed transaction-specific Word Client Email Draft must use **Georgia** for all visible text.
+
+This requirement applies to:
+
+- Client name / salutation.
+- Opening narrative.
+- Transaction Summary headings, labels, and populated values.
+- Preliminary Soft Quote / Indicative Terms heading.
+- Soft Quote table headers, labels, static terms, and populated transaction-specific values.
+- Key Issues.
+- Risk Factors, Exceptions & Mitigants.
+- Inconsistencies to Resolve.
+- Additional Information & Documentation Needed.
+- All bullet text.
+- All required bold labeled openings within analytical bullets.
+- Closing paragraph.
+- Any additional visible text required by this Master Operating System.
+
+Do not allow newly inserted or replacement text to inherit Calibri, Aptos, Arial, Times New Roman, or another default Word font.
+
+Every inserted or replacement run in the completed Word output must be explicitly formatted as **Georgia**, including all applicable Word font mappings.
+
+### Emphasis rules
+
+- **Opening narrative:** Georgia, regular, not bold.
+- **Section headings:** Georgia, bold.
+- **Closing paragraph:** Georgia, regular, not bold.
+- **Body narrative:** Georgia, regular unless a governing rule requires inline emphasis.
+- **Key Issue, Risk, Exception, and Inconsistency labeled openings:** Georgia, bold, as required by the governing bullet rules.
+- **Soft Quote populated values:** Georgia; preserve the template's existing emphasis unless the Master Operating System expressly requires another emphasis.
+- **Transaction Summary populated values:** Georgia; preserve the template's existing emphasis unless the Master Operating System expressly requires another emphasis.
+
+Do not make the full opening narrative bold merely because the source placeholder is bold.
+
+Do not make the closing paragraph bold merely because the source `Next Step` placeholder is bold.
+
+Before the completed `.docx` is returned, perform a typography validation pass and confirm:
+
+- No visible non-Georgia font remains in the completed Client Email Draft.
+- The opening narrative is not bold.
+- All section headings are bold.
+- The closing paragraph is not bold.
+- Required inline bold labeled openings remain bold.
+- No layout, table, spacing, border, shading, width, or other template formatting changed as a result of the typography correction.
+
 ## Content-only population rule
 
 Only the Client Email Draft is populated into File 03.
@@ -176,7 +223,7 @@ The controlling client-email rule is:
 
 **Closing paragraph, no Next Step heading.**
 
-The `Next Step` text present in the source template is a content placeholder. In the transaction-specific copy, remove the literal `Next Step` text and insert the natural closing paragraph in that location without changing the surrounding formatting.
+The `Next Step` text present in the source template is a content placeholder. In the transaction-specific copy, remove the literal `Next Step` text and insert the natural closing paragraph in that location. The closing paragraph must be **Georgia, regular, and not bold**. Preserve the surrounding layout, spacing, and other template formatting.
 
 ## Completion requirement
 
@@ -1526,7 +1573,9 @@ Replace the template instruction with the actual Martin opening narrative.
 
 Do not display the words **Opening Narrative** in the completed Client Email Draft.
 
-Preserve the existing paragraph formatting.
+Format the completed opening narrative in **Georgia, regular, and not bold**.
+
+Preserve the existing paragraph placement, spacing, alignment, and layout.
 
 ## Transaction Summary
 
@@ -1581,7 +1630,9 @@ Insert the natural Martin closing paragraph in that location.
 
 Do not display a closing heading.
 
-Do not alter the surrounding formatting.
+Format the completed closing paragraph in **Georgia, regular, and not bold**.
+
+Preserve the surrounding placement, spacing, alignment, and layout.
 
 ## Content isolation
 
@@ -3689,7 +3740,9 @@ Do not change:
 - Alignment.
 - Section order.
 
-The system changes content, not File 03 formatting.
+The system changes content, not File 03 layout or design.
+
+For the completed Word output, apply the Client Email Typography Lock in Master §3: all visible text must be Georgia; the opening narrative and closing paragraph must be regular and not bold; section headings must be bold; required inline bold labels remain bold.
 
 ---
 
@@ -3803,6 +3856,12 @@ For the first-review Word output also confirm:
 - The template formatting was not changed.
 - All placeholders and instructional text were replaced.
 - The literal Next Step placeholder was removed from the transaction-specific copy.
+- All visible Word output text is Georgia.
+- The opening narrative is Georgia, regular, and not bold.
+- All section headings are Georgia and bold.
+- The closing paragraph is Georgia, regular, and not bold.
+- Required inline bold labeled openings remain bold.
+- No non-Georgia font remains in populated values, body text, headings, or table text.
 - The completed transaction-specific `.docx` was returned.
 
 ---
