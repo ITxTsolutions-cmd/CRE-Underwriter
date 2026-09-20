@@ -1,14 +1,14 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "cre-underwriter",
-  "version": "10.4.1",
+  "version": "10.4.2",
   "description": "Execute a private CRE underwriting operating system with authoritative workflow, calculator, continuity, and client email template controls.",
   "extensions": {
     "com.openai": {
       "interface": {
         "displayName": "CRE Underwriter",
         "shortDescription": "Private CRE underwriting operating system",
-        "longDescription": "Runs the packaged CRE underwriting workflow, calculator rules, continuity controls, and client email template from one version-controlled authority, including enforced Georgia typography for generated Word client-email drafts."
+        "longDescription": "Runs the packaged CRE underwriting workflow, calculator rules, continuity controls, and client email template from one version-controlled authority, including enforced Georgia typography and normal body-paragraph formatting for the closing."
       }
     }
   }
