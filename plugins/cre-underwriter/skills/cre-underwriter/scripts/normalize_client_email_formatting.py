@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Normalize CRE Underwriter client-email DOCX typography without changing layout.
+"""Normalize CRE Underwriter client-email DOCX typography and closing paragraph formatting.
 
 Usage:
     python normalize_client_email_formatting.py input.docx [output.docx]
@@ -9,8 +9,10 @@ If output.docx is omitted, the input file is updated in place.
 from pathlib import Path
 import sys
 from docx import Document
+from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
+from docx.shared import Pt
 
 FONT = "Georgia"
 SECTION_HEADINGS = {
@@ -71,6 +73,39 @@ def set_document_defaults(doc):
         except Exception:
             pass
 
+def clear_child(pPr, tag):
+    child = pPr.find(qn(tag))
+    if child is not None:
+        pPr.remove(child)
+
+def normalize_closing_paragraph(paragraph, doc):
+    # The template's "Next Step" placeholder carries direct hanging/list-like
+    # indentation. A completed closing must instead be a normal body paragraph.
+    try:
+        paragraph.style = doc.styles["Normal"]
+    except Exception:
+        pass
+
+    pPr = paragraph._p.get_or_add_pPr()
+    for tag in ("w:ind", "w:numPr", "w:tabs", "w:outlineLvl"):
+        clear_child(pPr, tag)
+
+    paragraph.alignment = WD_ALIGN_PARAGRAPH.LEFT
+    pf = paragraph.paragraph_format
+    pf.left_indent = None
+    pf.right_indent = None
+    pf.first_line_indent = None
+    pf.space_before = Pt(8)
+    pf.space_after = Pt(0)
+    pf.line_spacing = 1.0
+    pf.keep_with_next = False
+    pf.keep_together = False
+    pf.page_break_before = False
+
+    for run in paragraph.runs:
+        run.bold = False
+        set_run_font(run)
+
 def normalize(doc):
     set_document_defaults(doc)
 
@@ -107,9 +142,7 @@ def normalize(doc):
     if nonempty_body:
         last = nonempty_body[-1]
         if last.text.strip().rstrip(".") not in SECTION_HEADINGS:
-            for run in last.runs:
-                run.bold = False
-                set_run_font(run)
+            normalize_closing_paragraph(last, doc)
 
     for table in doc.tables:
         for row in table.rows:
@@ -127,10 +160,26 @@ def validate(doc):
         for run in paragraph.runs:
             if run.text and run.font.name not in (FONT, None):
                 errors.append(f"Non-Georgia run: {run.text[:40]!r} -> {run.font.name!r}")
+
     for paragraph in doc.paragraphs:
         text = paragraph.text.strip().rstrip(".")
         if text in SECTION_HEADINGS and any(run.bold is not True for run in paragraph.runs if run.text):
             errors.append(f"Section heading not fully bold: {text}")
+
+    nonempty_body = [p for p in doc.paragraphs if p.text.strip()]
+    if nonempty_body:
+        last = nonempty_body[-1]
+        pPr = last._p.pPr
+        if last.alignment not in (None, WD_ALIGN_PARAGRAPH.LEFT):
+            errors.append("Closing paragraph is not left aligned")
+        if pPr is not None:
+            if pPr.find(qn("w:ind")) is not None:
+                errors.append("Closing paragraph still has direct indentation")
+            if pPr.find(qn("w:numPr")) is not None:
+                errors.append("Closing paragraph still has list/numbering formatting")
+        if any(run.bold for run in last.runs if run.text):
+            errors.append("Closing paragraph is bold")
+
     return errors
 
 def main():
@@ -138,9 +187,11 @@ def main():
         raise SystemExit("Usage: normalize_client_email_formatting.py input.docx [output.docx]")
     src = Path(sys.argv[1])
     dst = Path(sys.argv[2]) if len(sys.argv) == 3 else src
+
     doc = Document(src)
     normalize(doc)
     doc.save(dst)
+
     check = Document(dst)
     errors = validate(check)
     if errors:
