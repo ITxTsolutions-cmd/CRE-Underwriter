@@ -190,7 +190,7 @@ Every inserted or replacement run in the completed Word output must be explicitl
 
 - **Opening narrative:** Georgia, regular, not bold.
 - **Section headings:** Georgia, bold.
-- **Closing paragraph:** Georgia, regular, not bold.
+- **Closing paragraph:** Georgia, regular, not bold. It must be a standard left-aligned body paragraph with no bullet, numbering, hanging indent, left indent, right indent, or heading formatting.
 - **Body narrative:** Georgia, regular unless a governing rule requires inline emphasis.
 - **Key Issue, Risk, Exception, and Inconsistency labeled openings:** Georgia, bold, as required by the governing bullet rules.
 - **Soft Quote populated values:** Georgia; preserve the template's existing emphasis unless the Master Operating System expressly requires another emphasis.
@@ -206,6 +206,7 @@ Before the completed `.docx` is returned, perform a typography validation pass a
 - The opening narrative is not bold.
 - All section headings are bold.
 - The closing paragraph is not bold.
+- The closing paragraph is a standard left-aligned body paragraph with no bullet/numbering and no hanging, left, or right indentation.
 - Required inline bold labeled openings remain bold.
 - No layout, table, spacing, border, shading, width, or other template formatting changed as a result of the typography correction.
 
@@ -223,7 +224,7 @@ The controlling client-email rule is:
 
 **Closing paragraph, no Next Step heading.**
 
-The `Next Step` text present in the source template is a content placeholder. In the transaction-specific copy, remove the literal `Next Step` text and insert the natural closing paragraph in that location. The closing paragraph must be **Georgia, regular, and not bold**. Preserve the surrounding layout, spacing, and other template formatting.
+The `Next Step` text present in the source template is a content placeholder. In the transaction-specific copy, remove the literal `Next Step` text and insert the natural closing paragraph in that location. The closing paragraph must be **Georgia, regular, and not bold** and must be formatted as a true body paragraph: left aligned, full paragraph width, no bullet or numbering, no hanging indent, no left or right indent, and no heading style. Do not allow it to inherit the indentation or list formatting of the preceding document-request section. Preserve the approved page layout and surrounding spacing.
 
 ## Completion requirement
 
@@ -1632,7 +1633,9 @@ Do not display a closing heading.
 
 Format the completed closing paragraph in **Georgia, regular, and not bold**.
 
-Preserve the surrounding placement, spacing, alignment, and layout.
+Format it as a normal left-aligned body paragraph. Remove any bullet, numbering, hanging indent, inherited list indent, left indent, right indent, or heading-style formatting from the placeholder paragraph before inserting the closing text.
+
+Preserve the approved page layout and normal paragraph spacing.
 
 ## Content isolation
 
@@ -3860,6 +3863,7 @@ For the first-review Word output also confirm:
 - The opening narrative is Georgia, regular, and not bold.
 - All section headings are Georgia and bold.
 - The closing paragraph is Georgia, regular, and not bold.
+- The closing paragraph is left aligned and uses normal body-paragraph formatting with no bullet, numbering, hanging indent, left indent, or right indent.
 - Required inline bold labeled openings remain bold.
 - No non-Georgia font remains in populated values, body text, headings, or table text.
 - The completed transaction-specific `.docx` was returned.
