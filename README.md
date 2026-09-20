@@ -8,7 +8,7 @@ The plugin is intentionally thin. The packaged operating-system files remain the
 
 - `plugins/cre-underwriter/skills/cre-underwriter/references/01_MASTER_OPERATING_SYSTEM.md` - underwriting, workflow, continuity, and client communication authority.
 - `plugins/cre-underwriter/skills/cre-underwriter/references/02_LOAN_CALCULATOR.md` - calculator authority.
-- `plugins/cre-underwriter/skills/cre-underwriter/assets/03_CLIENT_EMAIL_DRAFT_TEMPLATE.docx` - exact Client Email Draft formatting authority.
+- `plugins/cre-underwriter/skills/cre-underwriter/assets/client-email-template/chunk_*.b64` - lossless storage of the exact Client Email Draft Word template. `scripts/rebuild_client_email_template.py` reconstructs `assets/03_CLIENT_EMAIL_DRAFT_TEMPLATE.docx` byte-for-byte before use.
 
 The skill entrypoint instructs ChatGPT to load and apply those authorities rather than maintaining a second copy of the underwriting rules.
 
