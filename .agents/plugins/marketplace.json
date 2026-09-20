@@ -1,0 +1,15 @@
+{
+  "name": "cre-tools",
+  "interface": {
+    "displayName": "CRE Tools"
+  },
+  "plugins": [
+    {
+      "name": "cre-underwriter",
+      "source": {
+        "source": "local",
+        "path": "./plugins/cre-underwriter"
+      }
+    }
+  ]
+}
