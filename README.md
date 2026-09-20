@@ -14,8 +14,12 @@ The skill entrypoint instructs ChatGPT to load and apply those authorities rathe
 
 ## Version
 
-Current plugin version: `10.4.0`
+Current plugin version: `10.4.1`
 
 ## Change control
 
 Update the authoritative files in GitHub, commit the change, and then sync the imported marketplace in ChatGPT. Do not duplicate operating-system rules in the plugin manifest or README.
+
+## Client Email Typography
+
+Generated Client Email Draft Word files are normalized before delivery so all visible text uses Georgia. Opening and closing narrative paragraphs are regular, section headings are bold, and required inline bold issue/risk/inconsistency labels remain bold. The typography pass preserves the approved template layout.
