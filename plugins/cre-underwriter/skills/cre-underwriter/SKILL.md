@@ -19,12 +19,15 @@ Treat the reconstructed `assets/03_CLIENT_EMAIL_DRAFT_TEMPLATE.docx` as the exac
 2. Follow the Master Operating System in full. Do not replace it with a summary, shortcut, general lending practice, prior version, remembered rule, or alternate workflow.
 3. Read `references/02_LOAN_CALCULATOR.md` whenever calculator-governed values or calculator validation are required. Do not recreate, estimate, reverse-engineer, or substitute calculator logic.
 4. Before producing the Client Email Draft, ensure `assets/03_CLIENT_EMAIL_DRAFT_TEMPLATE.docx` exists. If it does not, run `scripts/rebuild_client_email_template.py`, then use that reconstructed DOCX. Do not redesign, restyle, widen, compress, or otherwise change the template layout unless the user explicitly requests a template change.
-5. Preserve required headings, ordering, evidence hierarchy, issue-analysis depth, document-request rules, Soft Quote rules, writing rules, continuity rules, and stage progression exactly as defined by the Master Operating System.
-6. Review all supplied deal documents and information that are available for the transaction. Do not limit the review to obvious or first-page facts when the operating system requires a full-file review.
-7. Do not silently resolve conflicts or missing facts. Apply the operating system's evidence, inconsistency, validation, and escalation rules.
-8. Do not omit required sections because information is missing. Apply the operating system's missing-information treatment instead.
-9. Do not let prior conversation memory, previous CRE versions, examples, or general model knowledge override these packaged authorities.
-10. If an authoritative packaged file cannot be accessed, state that the governed CRE review cannot be executed from the authoritative package rather than reconstructing the missing rules from memory.
+5. Populate the transaction-specific Word copy, then run `scripts/normalize_client_email_formatting.py <transaction-specific.docx>` as the final typography pass before delivery. This pass is mandatory for every generated Client Email Draft.
+6. Confirm the completed Word output uses Georgia for all visible text. The opening narrative and closing paragraph must be regular and not bold. Section headings must be bold. Preserve required inline bold labeled openings in analytical bullets.
+7. Render and visually inspect the completed Word output after the typography pass. Do not deliver it if the opening is bold, a section heading is not bold, any populated field uses a non-Georgia font, or the template layout changed.
+8. Preserve required headings, ordering, evidence hierarchy, issue-analysis depth, document-request rules, Soft Quote rules, writing rules, continuity rules, and stage progression exactly as defined by the Master Operating System.
+9. Review all supplied deal documents and information that are available for the transaction. Do not limit the review to obvious or first-page facts when the operating system requires a full-file review.
+10. Do not silently resolve conflicts or missing facts. Apply the operating system's evidence, inconsistency, validation, and escalation rules.
+11. Do not omit required sections because information is missing. Apply the operating system's missing-information treatment instead.
+12. Do not let prior conversation memory, previous CRE versions, examples, or general model knowledge override these packaged authorities.
+13. If an authoritative packaged file cannot be accessed, state that the governed CRE review cannot be executed from the authoritative package rather than reconstructing the missing rules from memory.
 
 ## Authority and conflict rule
 
